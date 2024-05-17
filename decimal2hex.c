@@ -1,72 +1,32 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
 
-unsigned int decimal2hex(unsigned int);
+int decimal2hex(unsigned int, char*);
 
 int main()
 {
-    unsigned int data;
-    printf("Enter decimal number:");
-    scanf("%d",&data);
-
-    decimal2hex(data);
-
+    unsigned int input;
+    int index;
+    char result[20];
+    printf("Enter number\n");
+    scanf("%d", &input);
+    index = decimal2hex(input, result);
+    for(int j = index-1;j>=0;j--)
+        printf("%c",result[j]);
     return 0;
 }
 
-unsigned int decimal2hex(unsigned int demo)
+int decimal2hex(unsigned int data, char *ans)
 {
+    int index=0;
     unsigned int temp;
-    unsigned char *answer;
-    temp = demo;
-    while(0!=temp<16)
-    {
-        if(16<(temp%16))
-        {
-            *answer = (temp%16) + '0';           
-        }
+    while(0 != data)
+    {   
+        temp = data % 16;
+        if(10 > temp)
+            ans[index++] = '0' + temp;
         else
-        {
-            switch (temp%16)
-            {
-                case 10:
-                {
-                    *answer = 'A'; 
-                }
-                break;
-                case 11:
-                {
-                    *answer = 'B';
-                }
-                break;
-                case 12:
-                {
-                    *answer = 'C';
-                }
-                break;
-                case 13:
-                {
-                    *answer = 'D';
-                }
-                break;
-                case 14:
-                {
-                    *answer = 'E';
-                }
-                break;
-                case 15:
-                {
-                    *answer = 'F';
-                }
-                break;
-                default:
-                break;
-            }
-        }
-        answer++;
+            ans[index++] = 55 + temp;
+        data /= 16;
     }
-    *answer = '\0';
-    answer++;
-    printf("Printing string:%s",answer);
-    return 0;
+    return index;
 }
