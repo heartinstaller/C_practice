@@ -1,3 +1,14 @@
+/*
+BCD to decimal converter
+
+Below is the one output window sample.
+Note: BCD input should be separted by spaces.
+length is number of bcd digits and not decimal digits.
+
+Enter length:24
+Enter BCD number:0001 0010 0011 0100 0101 0110     
+Decimal: 21
+*/
 #include <stdio.h>
 #include <stdlib.h>
 
