@@ -9,7 +9,7 @@ int main (){
     input = malloc(50 * sizeof(char));
 
     printf("Enter string:");
-    scanf(" %s", input);
+    scanf(" %[^\n]", input);
     printf("Search char:");
     scanf(" %c", &key);
 
