@@ -17,6 +17,7 @@ int main (){
     hit = charsearch(input, key);
     printf("Hit amount: %d\n", hit);
 
+    free(input);
     return 0;
 }
 
